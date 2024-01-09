@@ -28,6 +28,8 @@ fraction_between = np.sum((data['Salary'] >= lower_bound) & (
     data['Salary'] <= upper_bound)) / len(data)
 
 # Function to get the statistical description of the dataset
+
+
 def getStatisticalDescription(data):
     mean = np.mean(data)
     median = np.median(data)
@@ -37,6 +39,7 @@ def getStatisticalDescription(data):
     skewness = data.skew()
     range = max(data) - min(data)
     return mean, mode, median, std, kurtosis, skewness, range, max(data), min(data)
+
 
 mean, mode, median, std, kurtosis, skewness, range, maxV, minV, = getStatisticalDescription(
     data['Salary'])
