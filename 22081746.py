@@ -27,6 +27,27 @@ upper_bound = 1.25 * mean_salary
 fraction_between = np.sum((data['Salary'] >= lower_bound) & (
     data['Salary'] <= upper_bound)) / len(data)
 
+# Function to get the statistical description of the dataset
+
+
+def getStatisticalDescription(data):
+    mean = np.mean(data)
+    median = np.median(data)
+    mode = data.mode()
+    std = data.std()
+    kurtosis = data.kurtosis()
+    skewness = data.skew()
+    range = max(data) - min(data)
+    Q1 = np.percentile(data, 25)
+    Q3 = np.percentile(data, 75)
+    iqr = Q3 - Q1
+    return mean, mode, median, std, kurtosis, skewness, range, max(data), min(data), iqr
+
+
+mean, mode, median, std, kurtosis, skewness, range, maxV, minV, iqr = getStatisticalDescription(
+    data['Salary'])
+print(f"mean : {mean}, mode is : {mode}, median : {median}, std : {std}, kurtosis : {kurtosis}, skewness : {skewness},Range : {range} , Max : {maxV} , Min : {minV} , IQR {iqr}")
+
 # Plot mean and fraction on the graph
 plt.axvline(mean_salary, color='red', linestyle='--',
             label=f'Mean Salary: {mean_salary:.2f}')
