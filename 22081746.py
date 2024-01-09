@@ -33,26 +33,25 @@ fraction_between = np.sum((data['Salary'] >= lower_bound) & (
 
 
 def getStatisticalDescription(data):
-    mean = np.mean(data)
     median = np.median(data)
     mode = data.mode()
     std = data.std()
     kurtosis = data.kurtosis()
     skewness = data.skew()
     data_range = max(data) - min(data)
-    return mean, mode, median, std, kurtosis, skewness, data_range, max(data), min(data)
+    return mode, median, std, kurtosis, skewness, data_range, max(data), min(data)
 
 
 # Obtain statistical descriptors
-mean, mode, median, std, kurtosis, skewness, data_range, max_val, min_val = getStatisticalDescription(
+mode, median, std, kurtosis, skewness, data_range, max_val, min_val = getStatisticalDescription(
     data['Salary'])
 
 # Display the statistical descriptors
-print(f"mean: {mean}, mode: {mode}, median: {median}, std: {std}, kurtosis: {kurtosis}, skewness: {skewness}, range: {data_range}, max: {max_val}, min: {min_val}")
+print(f"mode: {mode}, median: {median}, std: {std}, kurtosis: {kurtosis}, skewness: {skewness}, range: {data_range}, max: {max_val}, min: {min_val}")
 
 # Plot the mean and fraction on the graph
 plt.axvline(mean_salary, color='red', linestyle='--',
-            label=f'Mean Salary: {mean_salary:.2f}')
+            label=f'Mean Salary')
 plt.text(mean_salary, plt.ylim()[1]*0.8,
          f'Mean Salary: {mean_salary:.2f}', color='red')
 plt.text(upper_bound, plt.ylim()[
