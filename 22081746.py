@@ -4,7 +4,7 @@ import numpy as np
 from scipy.stats import gaussian_kde
 
 # Read data from the file
-data = pd.read_csv('data6.csv', header=None)
+data = pd.read_csv('data6-1.csv', header=None)
 
 # Assign 'Salary' as the column name
 data.columns = ['Salary']
@@ -39,6 +39,8 @@ plt.text(upper_bound, plt.ylim()[
 plt.xlabel('Salary')
 plt.ylabel('Probability Density')
 plt.title('Salary Distribution and Probability Density Function')
+plt.xlim(0,plt.xlim()[1])
+plt.ylim(0,plt.ylim()[1])
 plt.legend()
 
 # Show the plot
