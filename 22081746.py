@@ -38,15 +38,12 @@ def getStatisticalDescription(data):
     kurtosis = data.kurtosis()
     skewness = data.skew()
     range = max(data) - min(data)
-    Q1 = np.percentile(data, 25)
-    Q3 = np.percentile(data, 75)
-    iqr = Q3 - Q1
-    return mean, mode, median, std, kurtosis, skewness, range, max(data), min(data), iqr
+    return mean, mode, median, std, kurtosis, skewness, range, max(data), min(data)
 
 
-mean, mode, median, std, kurtosis, skewness, range, maxV, minV, iqr = getStatisticalDescription(
+mean, mode, median, std, kurtosis, skewness, range, maxV, minV, = getStatisticalDescription(
     data['Salary'])
-print(f"mean : {mean}, mode is : {mode}, median : {median}, std : {std}, kurtosis : {kurtosis}, skewness : {skewness},Range : {range} , Max : {maxV} , Min : {minV} , IQR {iqr}")
+print(f"mean : {mean}, mode is : {mode}, median : {median}, std : {std}, kurtosis : {kurtosis}, skewness : {skewness},Range : {range} , Max : {maxV} , Min : {minV}")
 
 # Plot mean and fraction on the graph
 plt.axvline(mean_salary, color='red', linestyle='--',
